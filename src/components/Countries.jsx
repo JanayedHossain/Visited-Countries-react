@@ -1,15 +1,12 @@
 import { use, useState } from "react";
 import Country from "./Country";
-
 const Countries = ({ countries }) => {
   const allCountries = use(countries);
-  const [search, setSearch] = useState("");
   const [visited, setVisited] = useState([]);
 
   const handleVisited = (visitedCountry) => {
     setVisited([...visited, visitedCountry]);
   };
-
   return (
     <div>
       <h1 className="text-4xl text-center pt-6 ">
@@ -17,24 +14,26 @@ const Countries = ({ countries }) => {
       </h1>
       <p className="text-center py-2">Visited : {visited?.length}</p>
       <div
-        className={"grid grid-cols-5 lg:grid-cols-10 w-2/3 sm:w-1/2 mx-auto gap-3 p-2 border rounded-md"}
+        className={
+          "grid grid-cols-5 lg:grid-cols-10 w-2/3 sm:w-1/2 mx-auto gap-3 p-2 border rounded-md"
+        }
       >
-        <h1 className={`col-span-10 text-center text-gray-500 ${visited.length>0?'hidden':'block'}`}>No visited found</h1>
+        <h1
+          className={`col-span-10 text-center text-gray-500 ${
+            visited.length > 0 ? "hidden" : "block"
+          }`}
+        >
+          No visited found
+        </h1>
         {visited.map((item) => (
           <img className="w-16 h-8" src={item?.flags?.svg} />
         ))}
       </div>
       <div className="w-1/2 sm:w-1/3 mx-auto">
-        <input
-          placeholder="Enter Country Name"
-          type="text"
-          className=" border-b border-gray-400 outline-none bg-transparent w-full mt-5 mb-10 text-center pb-2"
-          onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
-        />
+
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-4 xl:gap-10 ">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-4 xl:gap-10 mt-10">
         {allCountries
-          .filter((e) => e.name.common.toLowerCase().startsWith(search))
           .map((item, index) => (
             <div key={index}>
               <Country info={item} handleVisited={handleVisited} />
@@ -44,5 +43,4 @@ const Countries = ({ countries }) => {
     </div>
   );
 };
-
 export default Countries;

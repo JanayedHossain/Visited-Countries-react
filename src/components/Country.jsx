@@ -14,7 +14,7 @@ const Country = ({ info, handleVisited }) => {
         className="h-48 sm:h-52 lg:h-48 w-full rounded-lg"
       />
       <h1 className="text-xl py-4 text-center font-bold">
-        {info?.name?.common}
+        [ {info?.name?.common} ]
       </h1>
       <i className="block pb-2">
         Independent : {info?.independent ? "✔" : "❌"}

@@ -7,7 +7,7 @@ const fetchCountries = async () => {
 };
 const App = () => {
   return (
-    <div className=" bg-[#00000009] max-w-[1440px] mx-auto min-h-screen">
+    <div className=" bg-[#00000009] max-w-[1800px] mx-auto min-h-screen">
       <Suspense fallback={<h1 className="text-xl h-screen w-full flex items-center justify-center">Loading...</h1>}>
         <Countries countries={fetchCountries()} />
       </Suspense>
