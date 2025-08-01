@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import Countries from "./components/Countries";
 
 const fetchCountries = async () => {
-  const fetchurl = await fetch("https://restcountries.com/v3.1/all");
+  const fetchurl = await fetch("https://restcountries.com/v3.1/all?fields=name,independent,capital,region,area,population,flags");
   return fetchurl.json();
 };
 const App = () => {
